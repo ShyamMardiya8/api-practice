@@ -5,14 +5,12 @@ const HANDLE_APPLY = async (req, res) => {
   try {
     const { companyId, employeeId } = req.query;
 
-    // Find the employee by ID
     const findEmployee = await employeeDetails.findById(employeeId);
 
     if (!findEmployee) {
       return res.status(404).json({ message: "Employee not found" });
     }
 
-    // Prepare the candidate data to be stored
     const candidateData = {
       _id: findEmployee._id,
       firstName: findEmployee.firstName,
