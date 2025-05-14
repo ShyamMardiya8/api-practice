@@ -25,11 +25,6 @@ const companyHireDetails = new mongoose.Schema(
       require: true,
       trim: true,
     },
-    jobDetails: {
-      type: String,
-      require: true,
-      trim: true,
-    },
     shift: {
       type: String,
       require: true,
