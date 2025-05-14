@@ -49,6 +49,17 @@ const resumeSchema = new mongoose.Schema({
     type: [String],
     required: true,
   },
+  savedJob: [
+    {
+      companyName: String,
+      jobRole: String,
+      skills: [String],
+      education: [String],
+      shift: String,
+      benefit: String,
+      description: String,
+    },
+  ],
 });
 
 const employeeDetails = mongoose.model("Resume", resumeSchema);
