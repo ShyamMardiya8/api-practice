@@ -12,7 +12,6 @@ const multerMiddleware = require("../middleware/multerMiddeware");
 const tokenCheck = require("../middleware/jwtToken");
 const HANDLE_APPLY = require("../controller/ApplyService");
 const {SAVE_JOBS_DETAILS, ADD_SAVED_JOB, DELETE_SAVED_JOB} = require("../controller/SavedService");
-const { getChatStatus } = require("../controller/MessageService");
 
 const route = express.Router();
 
@@ -32,6 +31,5 @@ route.post('/apply', HANDLE_APPLY)
 route.get('/savedJob/:id', SAVE_JOBS_DETAILS)
 route.post('/savedJob', ADD_SAVED_JOB)
 route.post('/savedJobDelete', DELETE_SAVED_JOB)
-route.get('/chat', getChatStatus);
 
 module.exports = route;

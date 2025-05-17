@@ -3,7 +3,7 @@ const db = require("./app/connections/db")
 const http = require("http")
 const router = require('./app/routes/routes')
 const { green, bold, yellow, reset, white, magenta, blue, cyan } = require("./app/utils/colors")
-const { socketManager } = require("./app/controller/MessageService")
+
 
 
 const app = express()
@@ -15,11 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 db()
 
 app.use('/api', router)
-const server = http.createServer(app);
 
-socketManager(server)
-
-server.listen(port, () => {
+app.listen(port, () => {
 console.log(`\n${green}${bold}🚀 Server Status: ${yellow}Running${reset}`);
     console.log(`${blue}${bold}🌐 URL: ${cyan}http://localhost:${port}${reset}`);
     console.log(`${magenta}${bold}📅 Started on: ${white}${new Date().toLocaleString()}${reset}`);
